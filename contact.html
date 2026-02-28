@@ -30,11 +30,12 @@
       <form class="form">
         <h2>Send a Message</h2>
 
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
 
         <button type="submit">Send Message</button>
+        <p id="successMessage" class="success-text"></p>
       </form>
 
     </div>
@@ -44,5 +45,27 @@
     <p>© 2025 Modern Lifestyle | All Rights Reserved</p>
   </footer>
 
+ <script>
+  const form = document.querySelector("form");
+  const successMessage = document.getElementById("successMessage");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    console.log("User Data:");
+    console.log("Name:", name);  
+    console.log("Email:", email);
+    console.log("Message:", message);
+
+    successMessage.textContent = "Message Sent Successfully ✅";
+    successMessage.style.display = "block";
+
+    form.reset();
+  });
+</script>
 </body>
 </html>
